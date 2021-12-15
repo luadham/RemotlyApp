@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Remotly</string>
+    <string name="login">Login</string>
+    <string name="forget_pwd">Forget Password?</string>
+    <string name="email">Email</string>
+    <string name="pwd">Password</string>
+    <string name="dont_have_acc">Don\'t have and account?</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
