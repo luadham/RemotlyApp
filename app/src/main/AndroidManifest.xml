@@ -12,13 +12,14 @@
         <activity
             android:name=".Control.UserLogin"
             android:exported="false"
-            android:screenOrientation="locked"/>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Control.MainActivity"
             android:exported="false" />
         <activity
             android:name=".Control.SplashScreen"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
