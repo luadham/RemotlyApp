@@ -6,4 +6,14 @@
     <string name="pwd">Password</string>
     <string name="dont_have_acc">Don\'t have and account?</string>
     <string name="sign_up">Sign Up</string>
+    <string name="user_name">User Name</string>
+    <string name="have_acc">Have an Account?</string>
+    <string name="reset_pwd">Reset Password</string>
+    <string name="reset_msg">Enter the email associated with your account and we\'ll send an email
+    with instructions to reset your password</string>
+    <string name="send_instruction_msg">Reset</string>
+    <string name="chk_your_mail">Check Your Mail</string>
+    <string name="chk_mail_msg">We have sent a password recover instructions to your email.</string>
+    <string name="open_mail_app">Open email app</string>
+    <string name="skip_forget_pwd">Skip, i\'ll confirm later</string>
 </resources>

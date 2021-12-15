@@ -10,9 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FindRemoteJob">
         <activity
-            android:name=".Control.UserLogin"
+            android:name=".Control.ResetPasswordCheckEmail"
             android:exported="false"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Control.ResetPassword"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Control.UserSignUp"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Control.UserLogin"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Control.MainActivity"
             android:exported="false" />

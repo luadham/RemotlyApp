@@ -4,4 +4,8 @@
         android:fontStyle="normal"
         android:fontWeight="400"
         android:font="@font/gtwalsheimweb"/>
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="500"
+        android:font="@font/gtwalsheimboldweb"/>
 </font-family>
