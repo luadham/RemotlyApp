@@ -19,6 +19,7 @@
         android:background="@drawable/gradient_login">
 
         <ImageView
+            android:id="@+id/logo_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
