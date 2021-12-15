@@ -11,7 +11,8 @@
         android:theme="@style/Theme.FindRemoteJob">
         <activity
             android:name=".Control.UserLogin"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="locked"/>
         <activity
             android:name=".Control.MainActivity"
             android:exported="false" />
