@@ -7,16 +7,13 @@
     android:background="@color/main_color"
     tools:context=".Control.SplashScreen">
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="30sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/gtwalsheimweb"/>
+        android:src="@drawable/logo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
