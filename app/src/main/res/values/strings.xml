@@ -16,4 +16,7 @@
     <string name="chk_mail_msg">We have sent a password recover instructions to your email.</string>
     <string name="open_mail_app">Open email app</string>
     <string name="skip_forget_pwd">Skip, i\'ll confirm later</string>
+
+    <string name="latest_jops">Latest Jobs</string>
+    <string name="search_for_job">Search For Jop</string>
 </resources>

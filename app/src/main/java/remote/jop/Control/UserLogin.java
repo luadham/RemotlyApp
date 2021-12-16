@@ -18,6 +18,7 @@ public class UserLogin extends AppCompatActivity {
     private ImageView logoImageView;
     private TextView signUpButton, forgetPassword;
     private EditText emailEditText;
+    private Button loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,9 @@ public class UserLogin extends AppCompatActivity {
         signUpButton = findViewById(R.id.sign_up_login_form);
         forgetPassword = findViewById(R.id.forget_password_login_form);
         emailEditText = findViewById(R.id.email_text_login_form);
+        loginButton = findViewById(R.id.login_button);
 
+        loginButton.setOnClickListener(this::login);
         signUpButton.setOnClickListener(this::goToSignUpForm);
         forgetPassword.setOnClickListener(this::gotToForgetPasswordForm);
 
@@ -45,7 +48,10 @@ public class UserLogin extends AppCompatActivity {
     void startAnimations() {
         logoImageView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.bounce));
     }
-
+    void login(View view) {
+        finish();
+        startActivity(new Intent(this, MainActivity.class));
+    }
     @Override
     protected void onResume() {
         super.onResume();
