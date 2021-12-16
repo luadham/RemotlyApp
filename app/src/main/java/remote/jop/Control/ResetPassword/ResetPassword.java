@@ -1,4 +1,4 @@
-package remote.jop.Control;
+package remote.jop.Control.ResetPassword;
 
 import androidx.appcompat.app.AppCompatActivity;
 

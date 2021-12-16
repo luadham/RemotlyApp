@@ -1,4 +1,4 @@
-package remote.jop.Control;
+package remote.jop.Control.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.EdgeEffect;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import remote.jop.Control.MainUI.MainActivity;
+import remote.jop.Control.ResetPassword.ResetPassword;
+import remote.jop.Control.SignUp.UserSignUp;
 import remote.jop.R;
 
 public class UserLogin extends AppCompatActivity {

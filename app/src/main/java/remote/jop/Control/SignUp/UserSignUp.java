@@ -1,4 +1,4 @@
-package remote.jop.Control;
+package remote.jop.Control.SignUp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
