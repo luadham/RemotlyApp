@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         initMainFragment();
 
         navigationBar = findViewById(R.id.bottom_navigation_activity_main);
+        
         navigationBar.setOnItemSelectedListener(this::switchNavigationFragment);
 
     }
