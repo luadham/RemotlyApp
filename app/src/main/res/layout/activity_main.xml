@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,54 +7,20 @@
     android:orientation="vertical"
     tools:context=".Control.MainUI.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/latest_jops"
-        android:textSize="30sp"
-        android:fontFamily="@font/gtwalsheimweb"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="32dp"
-        android:textColor="@color/black"/>
-
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/frame_layout_activity_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_gravity="center_horizontal">
-        <EditText
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="@string/search_for_job"
-            android:layout_weight="1"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/search_bar"
-            android:paddingVertical="8dp"
-            android:drawableStart="@drawable/ic_search_icon"
-            android:fontFamily="@font/gtwalsheimweb"
-            android:drawablePadding="20dp"/>
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:src="@drawable/ic_settings_7"
-            android:background="@drawable/round_button"
-            android:backgroundTint="@color/main_color"
-            android:padding="15dp"
-            android:contentDescription="Filter" />
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation_activity_main"/>
 
-    <ScrollView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_activity_main"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_menu"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/navigation_shape"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"/>
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </ScrollView>
-
-
-</LinearLayout>
+</RelativeLayout>

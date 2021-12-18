@@ -19,4 +19,8 @@
 
     <string name="latest_jops">Latest Jobs</string>
     <string name="search_for_job">Search For Jop</string>
+
+    <string name="search">Search</string>
+    <string name="favourite">Favourite</string>
+    <string name="Account">Account</string>
 </resources>
