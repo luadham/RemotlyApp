@@ -52,8 +52,9 @@
             android:layout_marginRight="32dp"
             android:background="@drawable/edit_text"
             android:ems="10"
-            android:fontFamily="@font/gtwalsheimweb"
+            android:fontFamily="@font/main_light_font"
             android:hint="E-mail"
+            android:textColor="@color/white"
             android:inputType="textEmailAddress"
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +62,10 @@
             app:layout_constraintHorizontal_bias="0.13"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.120000005" />
+            app:layout_constraintVertical_bias="0.120000005"
+            android:elevation="10dp"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="10dp"/>
 
 
 
@@ -74,14 +78,18 @@
             android:padding="10dp"
             android:ems="10"
             android:hint="Password"
-            android:fontFamily="@font/gtwalsheimweb"
+            android:textColor="@color/white"
+            android:fontFamily="@font/main_light_font"
             android:background="@drawable/edit_text"
             android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email_text_login_form"
-            app:layout_constraintVertical_bias="0.07999998" />
+            app:layout_constraintVertical_bias="0.07999998"
+            android:elevation="10dp"
+            android:drawableStart="@drawable/ic_pwd"
+            android:drawablePadding="10dp"/>
 
         <TextView
             android:id="@+id/forget_password_login_form"
@@ -90,7 +98,7 @@
             android:text="@string/forget_pwd"
             android:textColor="@color/gray"
             android:textSize="16sp"
-            android:fontFamily="@font/gtwalsheimweb"
+            android:fontFamily="@font/main_light_font"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.85"
@@ -106,7 +114,7 @@
             android:background="@drawable/round_button"
             android:paddingStart="60dp"
             android:paddingEnd="60dp"
-            android:fontFamily="@font/gtwalsheimweb"
+            android:fontFamily="@font/main_light_font"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +125,7 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/gtwalsheimweb"
+            android:fontFamily="@font/main_light_font"
             android:text="Or"
             android:textColor="@color/gray"
             android:textSize="22sp"
@@ -167,13 +175,13 @@
                 android:text="@string/dont_have_acc"
                 android:textColor="@color/gray"
                 android:textSize="20sp"
-                android:fontFamily="@font/gtwalsheimweb"/>
+                android:fontFamily="@font/main_light_font"/>
             <TextView
                 android:id="@+id/sign_up_login_form"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sign_up"
-                android:fontFamily="@font/gtwalsheimweb"
+                android:fontFamily="@font/main_light_font"
                 android:textColor="@color/main_color"
                 android:textSize="20sp"/>
         </LinearLayout>

@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:text="@string/latest_jops"
         android:textSize="30sp"
-        android:fontFamily="@font/gtwalsheimweb"
+        android:fontFamily="@font/main_light_font"
         android:layout_marginTop="32dp"
         android:layout_marginStart="32dp"
         android:textColor="@color/black"/>
@@ -31,7 +31,7 @@
             android:background="@drawable/search_bar"
             android:paddingVertical="8dp"
             android:drawableStart="@drawable/ic_search_icon"
-            android:fontFamily="@font/gtwalsheimweb"
+            android:fontFamily="@font/main_light_font"
             android:drawablePadding="20dp"/>
         <ImageButton
             android:layout_width="wrap_content"

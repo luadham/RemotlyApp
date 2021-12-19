@@ -3,7 +3,7 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/gtwalsheimweb"/>
+        android:font="@font/main_light_font"/>
     <font
         android:fontStyle="normal"
         android:fontWeight="500"
