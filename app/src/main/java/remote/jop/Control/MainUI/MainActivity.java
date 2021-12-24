@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import Model.User;
+import remote.jop.Control.MainUI.Account.AccountFragment;
 import remote.jop.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -76,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new AccountFragment(user);
                 break;
         }
+
+        assert selectedFragment != null;
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frame_layout_activity_main, selectedFragment)

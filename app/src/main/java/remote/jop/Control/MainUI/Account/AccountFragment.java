@@ -1,5 +1,6 @@
-package remote.jop.Control.MainUI;
+package remote.jop.Control.MainUI.Account;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,8 +23,8 @@ import remote.jop.R;
 public class AccountFragment extends Fragment implements View.OnClickListener {
 
     private User user;
-
     private ImageView logoutBtn;
+    private ImageView settingBtn;
     private TextView userName;
     FirebaseAuth firebaseAuth;
 
@@ -41,6 +42,9 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
         userName = view.findViewById(R.id.user_name_account_fragment);
         userName.setText(user.getName());
 
+        settingBtn = view.findViewById(R.id.account_setting_account_fragment);
+        settingBtn.setOnClickListener(this);
+
         logoutBtn = view.findViewById(R.id.logout_account_fragment);
         logoutBtn.setOnClickListener(this);
 
@@ -53,7 +57,20 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
             case R.id.logout_account_fragment:
                 doLogout();
                 break;
+            case R.id.account_setting_account_fragment:
+                goToSettingFragment(user);
+                break;
         }
+    }
+
+
+    private void goToSettingFragment(User user) {
+        AccountSettingFragment accountSettingFragment = new AccountSettingFragment(user);
+        getActivity()
+                .getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame_layout_activity_main, accountSettingFragment)
+                .commit();
     }
 
     private void doLogout() {
