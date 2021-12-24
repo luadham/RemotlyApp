@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import remote.jop.Control.MainUI.MainActivity;
 import remote.jop.Control.ResetPassword.ResetPassword;
@@ -109,8 +110,14 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
         firebaseAuth.signInWithEmailAndPassword(email, pwd)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        finish();
-                        startActivity(new Intent(UserLogin.this, MainActivity.class));
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        if (user.isEmailVerified()) {
+                            finish();
+                            startActivity(new Intent(UserLogin.this, MainActivity.class));
+                        } else {
+                            user.sendEmailVerification();
+                            Toast.makeText(UserLogin.this, "Check Your E-mail", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
                         Toast.makeText(UserLogin.this, "Login Failed", Toast.LENGTH_SHORT).show();
                     }

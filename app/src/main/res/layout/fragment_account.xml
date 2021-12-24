@@ -24,9 +24,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_baseline_settings_24"
-            android:layout_marginEnd="32dp"/>
+            android:layout_marginEnd="16dp"/>
 
-
+        <ImageButton
+            android:id="@+id/logout_account_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/ic_logout_svgrepo_com"
+            android:backgroundTint="@color/gray"/>
     </LinearLayout>
     <!-- End Setting Layout -->
 
@@ -40,9 +46,10 @@
         android:layout_marginStart="32dp">
 
         <TextView
+            android:id="@+id/user_name_account_fragment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adham Adel Maher"
+            android:text=""
             android:textColor="@color/black"
             android:fontFamily="@font/gtwalsheimboldweb"
             android:textSize="35sp"

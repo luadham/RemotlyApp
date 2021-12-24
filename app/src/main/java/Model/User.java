@@ -10,6 +10,10 @@ public class User {
     private String pwd;
     private ArrayList<String> skills;
 
+    public User() {
+
+    }
+
     public User(String name, String email, String pwd) {
         setName(name);
         setEmail(email);
