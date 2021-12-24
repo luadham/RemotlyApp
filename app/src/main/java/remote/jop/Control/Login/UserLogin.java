@@ -1,7 +1,5 @@
 package remote.jop.Control.Login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,12 +9,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import remote.jop.Control.MainUI.MainActivity;
 import remote.jop.Control.ResetPassword.ResetPassword;
 import remote.jop.Control.SignUp.UserSignUp;
 import remote.jop.R;
 
-public class UserLogin extends AppCompatActivity {
+public class UserLogin extends AppCompatActivity implements View.OnClickListener {
     private ImageView logoImageView;
     private TextView signUpButton, forgetPassword;
     private EditText emailEditText;
@@ -33,11 +33,27 @@ public class UserLogin extends AppCompatActivity {
         emailEditText = findViewById(R.id.email_text_login_form);
         loginButton = findViewById(R.id.login_button);
 
-        loginButton.setOnClickListener(this::login);
-        signUpButton.setOnClickListener(this::goToSignUpForm);
-        forgetPassword.setOnClickListener(this::gotToForgetPasswordForm);
+        loginButton.setOnClickListener(this);
+        signUpButton.setOnClickListener(this);
+        forgetPassword.setOnClickListener(this);
 
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.forget_password_login_form:
+                gotToForgetPasswordForm(view);
+                return;
+            case R.id.sign_up_login_form:
+                goToSignUpForm(view);
+                return;
+            case R.id.login_button:
+                doLogin(view);
+                return;
+        }
+    }
+
     void goToSignUpForm(View view) {
         startActivity(new Intent(this, UserSignUp.class));
     }
@@ -50,7 +66,7 @@ public class UserLogin extends AppCompatActivity {
     void startAnimations() {
         logoImageView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.bounce));
     }
-    void login(View view) {
+    void doLogin(View view) {
         finish();
         startActivity(new Intent(this, MainActivity.class));
     }

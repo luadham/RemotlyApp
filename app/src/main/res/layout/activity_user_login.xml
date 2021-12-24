@@ -56,7 +56,7 @@
             android:hint="E-mail"
             android:textColor="@color/white"
             android:inputType="textEmailAddress"
-            android:padding="10dp"
+            android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.13"
@@ -65,7 +65,7 @@
             app:layout_constraintVertical_bias="0.120000005"
             android:elevation="10dp"
             android:drawableStart="@drawable/ic_email"
-            android:drawablePadding="10dp"/>
+            android:drawablePadding="10dp" />
 
 
 
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
-            android:padding="10dp"
+            android:padding="16dp"
             android:ems="10"
             android:hint="Password"
             android:textColor="@color/white"

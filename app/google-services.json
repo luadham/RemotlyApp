@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "331527975291",
+    "project_id": "remotlyapp",
+    "storage_bucket": "remotlyapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331527975291:android:6dea7725c0b3602dc38dde",
+        "android_client_info": {
+          "package_name": "remote.jop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "331527975291-oq40qbes8tg4nlcpvc3tj1bq59k4r10q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1zzF8KoiZPvkIlrtYy-ajF_S1zMJXivU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "331527975291-oq40qbes8tg4nlcpvc3tj1bq59k4r10q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

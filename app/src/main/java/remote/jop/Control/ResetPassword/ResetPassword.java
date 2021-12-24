@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import remote.jop.R;
 
-public class ResetPassword extends AppCompatActivity {
+public class ResetPassword extends AppCompatActivity implements View.OnClickListener {
     private TextView exitFormButton;
     private EditText email;
     private Button resetButton;
@@ -25,8 +25,21 @@ public class ResetPassword extends AppCompatActivity {
         resetButton = findViewById(R.id.reset_pwd_reset_activity);
 
         setEmailValue();
-        exitFormButton.setOnClickListener(this::goBack);
-        resetButton.setOnClickListener(this::goToCheckMailActivity);
+
+        exitFormButton.setOnClickListener(this);
+        resetButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.reset_pwd_reset_activity:
+                goToCheckMailActivity(view);
+                return;
+            case R.id.exit_forget_pwd_form:
+                goBack(view);
+                return;
+        }
     }
 
     void goBack(View view) {

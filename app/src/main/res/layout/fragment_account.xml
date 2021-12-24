@@ -42,7 +42,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Adham Adel"
+            android:text="Adham Adel Maher"
             android:textColor="@color/black"
             android:fontFamily="@font/gtwalsheimboldweb"
             android:textSize="35sp"
@@ -67,7 +67,7 @@
             android:fontFamily="@font/gtwalsheimlightweb"
             android:textSize="16sp"
             android:lineHeight="21dp"
-            android:text="I have 0 years experience and i have no fucken life to work in this fucken project i just want to sleep becuse i have a lot of exams and i cannt work under any thing if you want to hire me yob2a ktr 5erk if you donnt hire me tob2a ebn metnaka 3rs"/>
+            android:text="Description Only"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
