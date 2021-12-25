@@ -58,18 +58,18 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
                 doLogout();
                 break;
             case R.id.account_setting_account_fragment:
-                goToSettingFragment(user);
+                goToSettingFragment();
                 break;
         }
     }
 
 
-    private void goToSettingFragment(User user) {
-        AccountSettingFragment accountSettingFragment = new AccountSettingFragment(user);
+    private void goToSettingFragment() {
+
         getActivity()
                 .getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frame_layout_activity_main, accountSettingFragment)
+                .replace(R.id.frame_layout_activity_main, new AccountSettingFragment(user))
                 .commit();
     }
 

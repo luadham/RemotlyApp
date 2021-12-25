@@ -18,15 +18,15 @@
             android:layout_width="100dp"
             android:layout_height="10dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/processing_bar"
-            android:backgroundTint="@color/main_color" />
+            android:background="@drawable/processing_bar"/>
 
         <View
             android:id="@+id/tab_two_processing_bar_account_setting"
             android:layout_width="100dp"
             android:layout_height="10dp"
             android:layout_marginEnd="32dp"
-            android:background="@drawable/processing_bar"/>
+            android:background="@drawable/processing_bar"
+            android:backgroundTint="@color/main_color"/>
         <View
             android:id="@+id/tab_three_processing_bar_account_setting"
             android:layout_width="100dp"
@@ -41,7 +41,7 @@
         android:layout_below="@id/processing_bar"
         android:layout_centerInParent="true"
         android:layout_marginTop="32dp"
-        android:background="@drawable/ic_processing_amico" />
+        android:background="@drawable/ic_mental_health_amico" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
             android:id="@+id/user_name_account_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="Skill"
             android:background="@drawable/edit_text"
             android:padding="16dp"
             android:layout_marginBottom="32dp"
@@ -65,39 +65,18 @@
             android:gravity="center"
             android:fontFamily="@font/main_light_font"/>
 
-        <EditText
-            android:id="@+id/user_job_account_setting"
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Job"
-            android:background="@drawable/edit_text"
-            android:padding="16dp"
-            android:layout_marginBottom="32dp"
-            android:elevation="10dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:gravity="center"
-            android:fontFamily="@font/main_light_font"/>
+            android:text="add"
+            android:layout_gravity="center"/>
 
-        <EditText
-            android:id="@+id/user_desc_account_setting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Desc"
-            android:background="@drawable/edit_text"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:elevation="10dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:gravity="center"
-            android:fontFamily="@font/main_light_font"/>
 
     </LinearLayout>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/first_ui_account_setting_button"
+        android:id="@+id/second_ui_account_setting_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -105,8 +84,8 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:backgroundTint="@color/main_color"
+        android:contentDescription="Next"
         android:src="@drawable/ic_baseline_navigate_next_24"
-        app:tint="@color/white"
-        android:contentDescription="Next" />
+        app:tint="@color/white" />
 
 </RelativeLayout>
