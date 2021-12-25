@@ -9,17 +9,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import Model.User;
 import remote.jop.Control.MainUI.MainActivity;
 import remote.jop.Control.ResetPassword.ResetPassword;
 import remote.jop.Control.SignUp.UserSignUp;
@@ -27,6 +31,7 @@ import remote.jop.R;
 
 public class UserLogin extends AppCompatActivity implements View.OnClickListener {
 
+    private final String USERS_COLLECTION = "Users";
     private ImageView logoImageView;
     private TextView signUpButton;
     private TextView forgetPassword;
@@ -34,6 +39,10 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
     private EditText pwdEditText;
     private Button loginButton;
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser user;
+    private DatabaseReference databaseReference;
+    private User appUser;
+
 
 
     @Override
@@ -42,6 +51,7 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_user_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference(USERS_COLLECTION);
 
         signUpButton = findViewById(R.id.sign_up_login_form);
         signUpButton.setOnClickListener(this);
@@ -108,24 +118,31 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
         }
 
         firebaseAuth.signInWithEmailAndPassword(email, pwd)
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        FirebaseUser user = firebaseAuth.getCurrentUser();
-                        if (user.isEmailVerified()) {
-                            finish();
-                            startActivity(new Intent(UserLogin.this, MainActivity.class));
-                        } else {
-                            user.sendEmailVerification();
-                            Toast.makeText(UserLogin.this, "Check Your E-mail", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(UserLogin.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        user = authResult.getUser();
+                        databaseReference.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                appUser = snapshot.getValue(User.class);
+                                startActivity(new Intent(UserLogin.this, MainActivity.class).putExtra("user", appUser));
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     }
                 });
+
     }
+
     @Override
     protected void onResume() {
         super.onResume();
         startAnimations();
     }
+
 }

@@ -1,20 +1,14 @@
 package remote.jop.Control.MainUI;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import Model.User;
 import remote.jop.Control.MainUI.Account.AccountFragment;
@@ -22,12 +16,8 @@ import remote.jop.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final String USERS_COLLECTION = "Users";
+
     private BottomNavigationView navigationBar;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseUser firebaseUser;
-    private DatabaseReference databaseReference;
-    private String userId;
     private User user;
 
     @Override
@@ -35,26 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseUser = firebaseAuth.getCurrentUser();
-
-        databaseReference = FirebaseDatabase.getInstance().getReference(USERS_COLLECTION);
-
-        userId = firebaseUser.getUid();
-
-        // System.out.println("Adham I'm Here : " + userId);
-
-        databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                user = snapshot.getValue(User.class);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        user = (User) getIntent().getSerializableExtra("user");
         initMainFragment();
 
         navigationBar = findViewById(R.id.bottom_navigation_activity_main);
