@@ -6,8 +6,11 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import Model.User;
@@ -20,12 +23,14 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView navigationBar;
     private User user;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         user = (User) getIntent().getSerializableExtra("user");
+
         initMainFragment();
 
         navigationBar = findViewById(R.id.bottom_navigation_activity_main);
@@ -35,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean switchNavigationFragment(MenuItem item) {
         Fragment selectedFragment = null;
+
         switch (item.getItemId()) {
             case R.id.search_navigation_item:
                 selectedFragment = new SearchFragment();
@@ -62,5 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.frame_layout_activity_main, new SearchFragment())
                 .commit();
     }
+
 
 }

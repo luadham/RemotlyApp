@@ -44,16 +44,20 @@ public class UserSignUp extends AppCompatActivity implements View.OnClickListene
         firebaseAuth = FirebaseAuth.getInstance();
 
         exitActivity = findViewById(R.id.exit_sign_up_form);
+        exitActivity.setOnClickListener(this);
+
         loginAgain = findViewById(R.id.login_sign_up);
+        loginAgain.setOnClickListener(this);
+
         userPwd = findViewById(R.id.password_sign_up);
+
         signUp = findViewById(R.id.sign_up_button);
+        signUp.setOnClickListener(this);
+
         userName = findViewById(R.id.user_name_sign_up);
         userEmail = findViewById(R.id.email_sign_up);
         userPwd = findViewById(R.id.password_sign_up);
 
-        exitActivity.setOnClickListener(this);
-        loginAgain.setOnClickListener(this);
-        signUp.setOnClickListener(this);
 
     }
 
@@ -93,29 +97,29 @@ public class UserSignUp extends AppCompatActivity implements View.OnClickListene
             return;
         }
 
+        if (pwd.length() < MAX_PWD_LEN) {
+            userPwd.setError("Please Enter Strong Password");
+            userPwd.requestFocus();
+            return;
+        }
+
         firebaseAuth.createUserWithEmailAndPassword(email, pwd)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            User user = new User(name, email, pwd);
-                            FirebaseDatabase.getInstance()
-                                    .getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user)
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful()) {
-                                                Toast.makeText(UserSignUp.this, "Sign Up Done", Toast.LENGTH_SHORT).show();
-                                            } else {
-                                                Toast.makeText(UserSignUp.this, "Sign Up Failed", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }
-                                    });
-                        } else {
-                            Toast.makeText(UserSignUp.this, "Sign Up Failed", Toast.LENGTH_SHORT).show();
-                        }
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        User user = new User(name, email, pwd);
+                        FirebaseDatabase.getInstance()
+                                .getReference("Users")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(user)
+                                .addOnCompleteListener(signUpTask -> {
+                                    if (signUpTask.isSuccessful()) {
+                                        Toast.makeText(UserSignUp.this, "Sign Up Done", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(UserSignUp.this, "Sign Up Failed", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                    } else {
+                        Toast.makeText(UserSignUp.this, "Sign Up Failed", Toast.LENGTH_SHORT).show();
                     }
                 });
 

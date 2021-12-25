@@ -126,6 +126,7 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 appUser = snapshot.getValue(User.class);
+                                finish();
                                 startActivity(new Intent(UserLogin.this, MainActivity.class).putExtra("user", appUser));
                             }
 
