@@ -13,7 +13,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,9 +25,11 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import Model.User;
+import remote.jop.Control.ConnectionManager;
 import remote.jop.Control.MainUI.MainActivity;
 import remote.jop.Control.ResetPassword.ResetPassword;
 import remote.jop.Control.SignUp.UserSignUp;
@@ -42,6 +48,8 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
     private FirebaseUser user;
     private DatabaseReference databaseReference;
     private User appUser;
+    FirebaseApp firebaseApp;
+    private ConnectionManager manager = ConnectionManager.shared();
 
 
 
@@ -50,8 +58,16 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-        firebaseAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference(USERS_COLLECTION);
+
+        firebaseAuth = manager.getFirebaseAuth();
+        databaseReference = manager.getDatabaseReference().getReference().child(USERS_COLLECTION);
+        databaseReference.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+            @Override
+            public void onSuccess(DataSnapshot dataSnapshot) {
+                System.out.println("Adham : " + dataSnapshot.getValue().toString());
+            }
+        });
+
 
         signUpButton = findViewById(R.id.sign_up_login_form);
         signUpButton.setOnClickListener(this);
@@ -116,27 +132,37 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
             pwdEditText.requestFocus();
             return;
         }
+        Query q = databaseReference.orderByChild("email").equalTo(email);
 
-        firebaseAuth.signInWithEmailAndPassword(email, pwd)
-                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+        q.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String userId = null;
+                for (DataSnapshot child : snapshot.getChildren()) {
+                    userId = child.getKey();
+                }
+                assert userId != null;
+                databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onSuccess(AuthResult authResult) {
-                        user = authResult.getUser();
-                        databaseReference.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                appUser = snapshot.getValue(User.class);
-                                finish();
-                                startActivity(new Intent(UserLogin.this, MainActivity.class).putExtra("user", appUser));
-                            }
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        appUser = snapshot.getValue(User.class);
+                        finish();
+                        startActivity(new Intent(UserLogin.this, MainActivity.class).putExtra("user", appUser));
+                    }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
                     }
                 });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+//
 
     }
 

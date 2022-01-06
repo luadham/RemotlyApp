@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 import Model.User;
+import remote.jop.Control.ConnectionManager;
 import remote.jop.Control.Login.UserLogin;
 import remote.jop.R;
 
@@ -26,7 +27,8 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
     private ImageView logoutBtn;
     private ImageView settingBtn;
     private TextView userName;
-    FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
+    private ConnectionManager manager = ConnectionManager.shared();
 
     public AccountFragment(User user) {
         this.user = user;
@@ -37,7 +39,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth = manager.getFirebaseAuth();
 
         userName = view.findViewById(R.id.user_name_account_fragment);
         userName.setText(user.getName());

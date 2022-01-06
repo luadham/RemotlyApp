@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import Model.User;
+import remote.jop.Control.ConnectionManager;
 import remote.jop.R;
 
 public class UserSignUp extends AppCompatActivity implements View.OnClickListener {
@@ -35,13 +36,14 @@ public class UserSignUp extends AppCompatActivity implements View.OnClickListene
     private final int MAX_PWD_LEN = 8;
 
     private FirebaseAuth firebaseAuth;
+    private ConnectionManager manager = ConnectionManager.shared();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_sign_up);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth = manager.getFirebaseAuth();
 
         exitActivity = findViewById(R.id.exit_sign_up_form);
         exitActivity.setOnClickListener(this);
@@ -107,7 +109,7 @@ public class UserSignUp extends AppCompatActivity implements View.OnClickListene
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         User user = new User(name, email, pwd);
-                        FirebaseDatabase.getInstance()
+                        manager.getDatabaseReference()
                                 .getReference("Users")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                 .setValue(user)

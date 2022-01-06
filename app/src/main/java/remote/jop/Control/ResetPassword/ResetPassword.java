@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import remote.jop.Control.ConnectionManager;
 import remote.jop.R;
 
 public class ResetPassword extends AppCompatActivity implements View.OnClickListener {
@@ -21,13 +22,14 @@ public class ResetPassword extends AppCompatActivity implements View.OnClickList
     private EditText emailEditText;
     private Button resetButton;
     private FirebaseAuth firebaseAuth;
+    private ConnectionManager manager = ConnectionManager.shared();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_password);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth = manager.getFirebaseAuth();
 
         exitFormButton = findViewById(R.id.exit_forget_pwd_form);
         exitFormButton.setOnClickListener(this);
