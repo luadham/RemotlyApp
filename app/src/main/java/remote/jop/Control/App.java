@@ -8,6 +8,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        // test
         FirebaseDatabase.getInstance().setPersistenceEnabled(true);
     }
 }

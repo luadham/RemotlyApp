@@ -23,4 +23,6 @@
     <string name="search">Search</string>
     <string name="favourite">Favourite</string>
     <string name="Account">Account</string>
+
+    <string name="Desc">Description</string>
 </resources>

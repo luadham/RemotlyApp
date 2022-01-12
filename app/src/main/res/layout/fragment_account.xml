@@ -14,11 +14,6 @@
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_baseline_share_24"
-            android:layout_marginEnd="16dp"/>
 
         <ImageView
             android:id="@+id/account_setting_account_fragment"
@@ -75,7 +70,7 @@
             android:fontFamily="@font/gtwalsheimlightweb"
             android:textSize="16sp"
             android:lineHeight="21dp"
-            android:text="Description Only"/>
+            android:text="You Don't Have Any Description"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -99,11 +94,12 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_gravity="center">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adham"/>
+                android:text="Learn"/>
         </LinearLayout>
         <!-- End Knowlage -->
 

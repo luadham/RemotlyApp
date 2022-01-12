@@ -44,30 +44,16 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
     private EditText emailEditText;
     private EditText pwdEditText;
     private Button loginButton;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseUser user;
     private DatabaseReference databaseReference;
     private User appUser;
-    FirebaseApp firebaseApp;
     private ConnectionManager manager = ConnectionManager.shared();
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
 
-
-        firebaseAuth = manager.getFirebaseAuth();
         databaseReference = manager.getDatabaseReference().getReference().child(USERS_COLLECTION);
-        databaseReference.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
-            @Override
-            public void onSuccess(DataSnapshot dataSnapshot) {
-                System.out.println("Adham : " + dataSnapshot.getValue().toString());
-            }
-        });
-
 
         signUpButton = findViewById(R.id.sign_up_login_form);
         signUpButton.setOnClickListener(this);
