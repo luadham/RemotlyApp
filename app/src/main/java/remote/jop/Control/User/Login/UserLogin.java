@@ -94,9 +94,11 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
         forgetPwdIntent.putExtra("user_email", emailEditText.getText().toString());
         startActivity(forgetPwdIntent);
     }
+
     void startAnimations() {
         logoImageView.startAnimation(AnimationUtils.loadAnimation(this, R.anim.bounce));
     }
+
     void doLogin() {
         String email = emailEditText.getText().toString().trim();
         String pwd = pwdEditText.getText().toString();
@@ -148,7 +150,6 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
 
             }
         });
-//
 
     }
 
