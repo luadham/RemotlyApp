@@ -1,4 +1,4 @@
-package remote.jop.Control.MainUI;
+package remote.jop.Control.User.MainUI;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,16 +6,12 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.FirebaseDatabase;
 
 import Model.User;
-import remote.jop.Control.MainUI.Account.AccountFragment;
+import remote.jop.Control.User.MainUI.Account.AccountFragment;
 import remote.jop.R;
 
 public class MainActivity extends AppCompatActivity {

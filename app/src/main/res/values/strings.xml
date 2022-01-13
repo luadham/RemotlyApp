@@ -25,4 +25,7 @@
     <string name="Account">Account</string>
 
     <string name="Desc">Description</string>
+
+    <string name="Seeker">Seeker</string>
+    <string name="Company">Company</string>
 </resources>

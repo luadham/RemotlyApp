@@ -7,10 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.google.firebase.database.FirebaseDatabase;
-
-import remote.jop.Control.Login.UserLogin;
 import remote.jop.R;
+import remote.jop.SwitchActivity;
 
 @SuppressLint("CustomSplashScreen")
 public class SplashScreen extends AppCompatActivity {
@@ -24,7 +22,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreen.this, UserLogin.class));
+                startActivity(new Intent(SplashScreen.this, SwitchActivity.class));
                 SplashScreen.this.finish();
             }
         }, DELAY);

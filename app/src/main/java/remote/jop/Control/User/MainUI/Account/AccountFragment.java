@@ -1,12 +1,10 @@
-package remote.jop.Control.MainUI.Account;
+package remote.jop.Control.User.MainUI.Account;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import Model.User;
 import remote.jop.Control.ConnectionManager;
-import remote.jop.Control.Login.UserLogin;
+import remote.jop.Control.User.Login.UserLogin;
 import remote.jop.R;
 
 public class AccountFragment extends Fragment implements View.OnClickListener {

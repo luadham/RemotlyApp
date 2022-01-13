@@ -1,4 +1,4 @@
-package remote.jop.Control.Login;
+package remote.jop.Control.User.Login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,26 +13,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import Model.User;
 import remote.jop.Control.ConnectionManager;
-import remote.jop.Control.MainUI.MainActivity;
+import remote.jop.Control.User.MainUI.MainActivity;
 import remote.jop.Control.ResetPassword.ResetPassword;
-import remote.jop.Control.SignUp.UserSignUp;
+import remote.jop.Control.User.UserSignUp.UserSignUp;
 import remote.jop.R;
 
 public class UserLogin extends AppCompatActivity implements View.OnClickListener {

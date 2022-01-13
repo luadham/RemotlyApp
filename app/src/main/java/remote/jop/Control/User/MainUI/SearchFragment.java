@@ -1,4 +1,4 @@
-package remote.jop.Control.MainUI;
+package remote.jop.Control.User.MainUI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
