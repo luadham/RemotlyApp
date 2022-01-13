@@ -8,6 +8,10 @@ public class Job {
     private String companyEmail;
     private double salary;
 
+    public Job() {
+
+    }
+
     public Job(String jobTitle, String jobRequirements, String jobLocation, String jobDesc, String companyEmail, double salary) {
         this.jobTitle = jobTitle;
         this.jobRequirements = jobRequirements;

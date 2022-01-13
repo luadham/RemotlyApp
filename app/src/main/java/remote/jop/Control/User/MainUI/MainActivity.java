@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView navigationBar;
     private User user;
-
-
+    private Fragment selectedFragment;
+    private Fragment mainFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         user = (User) getIntent().getSerializableExtra("user");
 
+        mainFragment = new SearchFragment();
+        selectedFragment = mainFragment;
         initMainFragment();
 
         navigationBar = findViewById(R.id.bottom_navigation_activity_main);
@@ -36,11 +38,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean switchNavigationFragment(MenuItem item) {
-        Fragment selectedFragment = null;
-
         switch (item.getItemId()) {
             case R.id.search_navigation_item:
-                selectedFragment = new SearchFragment();
+                selectedFragment = mainFragment;
                 break;
             case R.id.fav_navigation_item:
                 selectedFragment = new FavouriteFragment();
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private void initMainFragment() {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frame_layout_activity_main, new SearchFragment())
+                .replace(R.id.frame_layout_activity_main, mainFragment)
                 .commit();
     }
 
