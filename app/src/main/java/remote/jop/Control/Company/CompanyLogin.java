@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -99,7 +100,10 @@ public class CompanyLogin extends AppCompatActivity implements View.OnClickListe
                 for (DataSnapshot child : snapshot.getChildren()) {
                     companyId = child.getKey();
                 }
-                assert companyId != null;
+                if (companyId == null) {
+                    Toast.makeText(CompanyLogin.this, "User Doesn't Exist", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 databaseReference.child(companyId).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
