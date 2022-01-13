@@ -16,6 +16,7 @@
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.26614583333333336" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/ic_chk.xml" value="0.2601851851851852" />
+        <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/ic_company_amico.xml" value="0.14375" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/ic_creativity_amico.xml" value="0.23703703703703705" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/ic_email.xml" value="0.2601851851851852" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/ic_facebook_svgrepo_com.xml" value="0.2601851851851852" />
@@ -30,6 +31,8 @@
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/ic_settings_7.xml" value="0.2601851851851852" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/ic_user.xml" value="0.2601851851851852" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/ic_version_control_bro.xml" value="0.26614583333333336" />
+        <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/ic_wave.xml" value="0.26614583333333336" />
+        <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/job_round.xml" value="0.17407407407407408" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/logo.xml" value="0.2601851851851852" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/navigation_shape.xml" value="0.23794871794871794" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/drawable/processing_bar.xml" value="0.26614583333333336" />
@@ -45,6 +48,7 @@
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/layout/activity_company_login2.xml" value="0.12158054711246201" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/layout/activity_company_post_job.xml" value="0.4" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/layout/activity_company_sign_up.xml" value="0.12158054711246201" />
+        <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/layout/activity_job.xml" value="0.1" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/layout/activity_main.xml" value="0.1272644927536232" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/layout/activity_posting_job.xml" value="0.12158054711246201" />
         <entry key="..\:/Study/Term 7/MobileApps/AndroidProject/RemotlyApp-master/RemotlyApp-master/app/src/main/res/layout/activity_reset_password.xml" value="0.22282608695652173" />

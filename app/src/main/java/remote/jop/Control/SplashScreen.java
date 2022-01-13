@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import remote.jop.JobActivity;
 import remote.jop.R;
 import remote.jop.SwitchActivity;
 
@@ -22,7 +23,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreen.this, SwitchActivity.class));
+                startActivity(new Intent(SplashScreen.this, JobActivity.class));
                 SplashScreen.this.finish();
             }
         }, DELAY);
