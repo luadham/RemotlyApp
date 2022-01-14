@@ -11,18 +11,20 @@ public class User implements Serializable {
     private String email;
     private String pwd;
     private ArrayList<String> skills = new ArrayList<>();
-    private ArrayList<Job> favouriteJobs = new ArrayList<>();
+    private ArrayList<Job> favJobs = new ArrayList<>();
+    private String uid;
 
     public User() {
 
     }
 
-    public ArrayList<Job> getFavouriteJobs() {
-        return favouriteJobs;
-    }
-
-    public void setFavouriteJobs(ArrayList<Job> favouriteJobs) {
-        this.favouriteJobs = favouriteJobs;
+    public User(String name, String job, String desc, String email, String pwd, ArrayList<Job> favouriteJobs) {
+        this.name = name;
+        this.job = job;
+        this.desc = desc;
+        this.email = email;
+        this.pwd = pwd;
+        this.favJobs = favouriteJobs;
     }
 
     public User(String name, String email, String pwd) {
@@ -77,5 +79,21 @@ public class User implements Serializable {
 
     public void setSkills(ArrayList<String> skills) {
         this.skills = skills;
+    }
+
+    public ArrayList<Job> getFavJobs() {
+        return favJobs;
+    }
+
+    public void setFavJobs(ArrayList<Job> favJobs) {
+        this.favJobs = favJobs;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

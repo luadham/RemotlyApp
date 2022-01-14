@@ -91,14 +91,16 @@ public class CompanyLogin extends AppCompatActivity implements View.OnClickListe
             companyPwd.requestFocus();
             return;
         }
-        Query q = databaseReference.orderByChild("email").equalTo(email);
+        Query q = databaseReference.orderByChild("email");
 
         q.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String companyId = null;
                 for (DataSnapshot child : snapshot.getChildren()) {
-                    companyId = child.getKey();
+                    if (child.child("email").getValue().toString().equals(email) && child.child("pwd").getValue().toString().equals(pwd)) {
+                        companyId = child.getKey();
+                    }
                 }
                 if (companyId == null) {
                     Toast.makeText(CompanyLogin.this, "User Doesn't Exist", Toast.LENGTH_SHORT).show();

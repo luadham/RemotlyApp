@@ -30,6 +30,7 @@ import remote.jop.R;
 public class UserLogin extends AppCompatActivity implements View.OnClickListener {
 
     private final String USERS_COLLECTION = "Users";
+    private String userId;
     private ImageView logoImageView;
     private TextView signUpButton;
     private TextView forgetPassword;
@@ -37,7 +38,7 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
     private EditText pwdEditText;
     private Button loginButton;
     private DatabaseReference databaseReference;
-    private User appUser;
+    public static User appUser;
     private ConnectionManager manager = ConnectionManager.shared();
 
     @Override
@@ -117,7 +118,6 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
         q.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String userId = null;
                 for (DataSnapshot child : snapshot.getChildren()) {
                     if (child.child("email").getValue().toString().equals(email) && child.child("pwd").getValue().toString().equals(pwd)) {
                         userId = child.getKey();
@@ -132,6 +132,7 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         appUser = snapshot.getValue(User.class);
+                        appUser.setUid(userId);
                         finish();
                         startActivity(new Intent(UserLogin.this, MainActivity.class).putExtra("user", appUser));
                     }

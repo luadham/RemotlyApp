@@ -1,5 +1,6 @@
 package remote.jop.Control.User.MainUI;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -60,7 +61,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         listView = view.findViewById(R.id.jobs_list_view);
 
         arrayList = new ArrayList<>();
@@ -104,6 +104,9 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         startActivity(new Intent(getActivity().getApplicationContext(), JobActivity.class).putExtra("job",
-                jobs.get(i)).putExtra("user", user));
+                jobs.get(i)));
     }
+
+
+
 }

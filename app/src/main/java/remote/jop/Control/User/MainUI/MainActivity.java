@@ -1,12 +1,15 @@
 package remote.jop.Control.User.MainUI;
 
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -27,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        user = (User) getIntent().getSerializableExtra("user");
-
-        mainFragment = new SearchFragment(user);
+        mainFragment = new SearchFragment();
         selectedFragment = mainFragment;
         initMainFragment();
 
@@ -67,6 +68,5 @@ public class MainActivity extends AppCompatActivity {
                 .replace(R.id.frame_layout_activity_main, mainFragment)
                 .commit();
     }
-
 
 }
