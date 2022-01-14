@@ -58,11 +58,10 @@ public class CompanyPostJob extends AppCompatActivity implements View.OnClickLis
         String jobLoc = jopLocation.getText().toString();
         String jobDec = jopDesc.getText().toString();
         double sal = Double.parseDouble(jopSalary.getText().toString());
-        return new Job(title, jobReq, jobLoc, jobDec ,sal);
+        return new Job(title, jobReq, jobLoc, jobDec, company, sal);
     }
     private void postJob() {
         job = getJob();
-        job.setCompanyEmail(company.getEmail());
         firebaseDatabase = manager.getDatabaseReference().getReference(jops);
         firebaseDatabase.push().setValue(job);
     }

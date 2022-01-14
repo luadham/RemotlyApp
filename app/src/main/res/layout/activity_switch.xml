@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="Seeker"
             android:fontFamily="@font/main_font"
-            android:textSize="32sp"
+            android:textSize="22sp"
             android:elevation="10dp"/>
 
     </LinearLayout>
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="Company"
             android:fontFamily="@font/main_font"
-            android:textSize="32sp"
+            android:textSize="22sp"
             android:elevation="10dp"/>
 
     </LinearLayout>

@@ -16,6 +16,7 @@
         android:gravity="center_horizontal">
 
         <TextView
+            android:id="@+id/job_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Software Engineer"
@@ -25,6 +26,7 @@
             android:layout_marginTop="8dp"/>
 
         <TextView
+            android:id="@+id/job_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Google"
@@ -38,6 +40,7 @@
             android:gravity="center"
             android:layout_marginTop="16dp">
             <TextView
+                android:id="@+id/job_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Egypt"
@@ -46,6 +49,7 @@
                 android:layout_marginEnd="64dp"
                 android:textSize="18sp" />
             <TextView
+                android:id="@+id/job_salary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2000$"
@@ -88,9 +92,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
-        <Button
+
+        <ImageButton
             android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:src="@drawable/ic_baseline_favorite_border_24"
+            android:backgroundTint="@color/main_color"
+            android:background="@drawable/round_button"
+            android:padding="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"/>
+
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Apply" />
+            android:text="Apply"
+            android:background="@drawable/round_button"
+            android:layout_marginEnd="16dp"/>
     </LinearLayout>
 </LinearLayout>

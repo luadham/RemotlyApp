@@ -5,6 +5,8 @@ public class Job {
     private String jobRequirements;
     private String jobLocation;
     private String jobDesc;
+    private Company company;
+    private String companyName;
     private String companyEmail;
     private double salary;
 
@@ -12,28 +14,12 @@ public class Job {
 
     }
 
-    public Job(String jobTitle, String jobRequirements, String jobLocation, String jobDesc, String companyEmail, double salary) {
+    public Job(String jobTitle, String jobRequirements, String jobLocation, String jobDesc, Company company, double salary) {
         this.jobTitle = jobTitle;
         this.jobRequirements = jobRequirements;
         this.jobLocation = jobLocation;
         this.jobDesc = jobDesc;
-        this.companyEmail = companyEmail;
-        this.salary = salary;
-    }
-
-    public String getCompanyEmail() {
-        return companyEmail;
-    }
-
-    public void setCompanyEmail(String companyEmail) {
-        this.companyEmail = companyEmail;
-    }
-
-    public Job(String jobTitle, String jobRequirements, String jobLocation, String jobDesc, double salary) {
-        this.jobTitle = jobTitle;
-        this.jobRequirements = jobRequirements;
-        this.jobLocation = jobLocation;
-        this.jobDesc = jobDesc;
+        this.company = company;
         this.salary = salary;
     }
 
@@ -69,11 +55,35 @@ public class Job {
         this.jobDesc = jobDesc;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
     public double getSalary() {
         return salary;
     }
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getCompanyEmail() {
+        return companyEmail;
+    }
+
+    public void setCompanyEmail(String companyEmail) {
+        this.companyEmail = companyEmail;
     }
 }
