@@ -10,10 +10,19 @@ public class User implements Serializable {
     private String desc;
     private String email;
     private String pwd;
-    private ArrayList<String> skills;
+    private ArrayList<String> skills = new ArrayList<>();
+    private ArrayList<Job> favouriteJobs = new ArrayList<>();
 
     public User() {
 
+    }
+
+    public ArrayList<Job> getFavouriteJobs() {
+        return favouriteJobs;
+    }
+
+    public void setFavouriteJobs(ArrayList<Job> favouriteJobs) {
+        this.favouriteJobs = favouriteJobs;
     }
 
     public User(String name, String email, String pwd) {

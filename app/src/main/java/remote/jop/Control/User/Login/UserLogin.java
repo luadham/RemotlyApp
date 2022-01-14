@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -111,16 +112,22 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
             pwdEditText.requestFocus();
             return;
         }
-        Query q = databaseReference.orderByChild("email").equalTo(email);
+        Query q = databaseReference.orderByChild("email");
 
         q.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String userId = null;
                 for (DataSnapshot child : snapshot.getChildren()) {
-                    userId = child.getKey();
+                    if (child.child("email").getValue().toString().equals(email) && child.child("pwd").getValue().toString().equals(pwd)) {
+                        userId = child.getKey();
+                    }
                 }
-                assert userId != null;
+                if (userId == null) {
+                    Toast.makeText(UserLogin.this, "Wrong E-mail or password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 databaseReference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -9,9 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import Model.User;
 import remote.jop.R;
 
 public class FavouriteFragment extends Fragment {
+    private User user;
+
+    public FavouriteFragment() {
+
+    }
+
+    public FavouriteFragment(User user) {
+        this.user = user;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -26,6 +26,7 @@ import java.util.ArrayList;
 
 import Model.Company;
 import Model.Job;
+import Model.User;
 import remote.jop.Control.ConnectionManager;
 import remote.jop.Control.JobAdapter;
 import remote.jop.JobActivity;
@@ -39,9 +40,16 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
     private ListView listView;
     private ArrayList<String> arrayList;
     private ArrayList<Job> jobs;
-    private DataSnapshot snapshot;
     private Job job;
+    private User user;
 
+    public SearchFragment() {
+
+    }
+
+    public SearchFragment(User user) {
+        this.user = user;
+    }
 
     @Nullable
     @Override
@@ -59,8 +67,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
         jobs = new ArrayList<>();
 
         JobAdapter jobAdapter = new JobAdapter(jobs, getActivity().getApplicationContext());
-
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, arrayList);
 
         databaseReference = manager.getDatabaseReference().getReference(jobsCollections);
 
@@ -98,6 +104,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         startActivity(new Intent(getActivity().getApplicationContext(), JobActivity.class).putExtra("job",
-                jobs.get(i)));
+                jobs.get(i)).putExtra("user", user));
     }
 }

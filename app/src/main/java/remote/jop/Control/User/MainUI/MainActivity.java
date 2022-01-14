@@ -4,6 +4,7 @@ package remote.jop.Control.User.MainUI;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         user = (User) getIntent().getSerializableExtra("user");
 
-        mainFragment = new SearchFragment();
+        mainFragment = new SearchFragment(user);
         selectedFragment = mainFragment;
         initMainFragment();
 
@@ -37,13 +38,14 @@ public class MainActivity extends AppCompatActivity {
         navigationBar.setOnItemSelectedListener(this::switchNavigationFragment);
     }
 
+    @SuppressLint("NonConstantResourceId")
     private boolean switchNavigationFragment(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.search_navigation_item:
                 selectedFragment = mainFragment;
                 break;
             case R.id.fav_navigation_item:
-                selectedFragment = new FavouriteFragment();
+                selectedFragment = new FavouriteFragment(user);
                 break;
             case R.id.account_navigation_item:
                 selectedFragment = new AccountFragment(user);
