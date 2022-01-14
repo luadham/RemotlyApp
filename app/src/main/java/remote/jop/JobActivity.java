@@ -23,12 +23,13 @@ public class JobActivity extends AppCompatActivity {
         jobCompany = findViewById(R.id.job_company);
         jobSalary = findViewById(R.id.job_salary);
         jobLocation = findViewById(R.id.job_location);
+        job = (Job) getIntent().getSerializableExtra("job");
         setData();
     }
 
     private void setData() {
         jobName.setText(job.getJobTitle());
-        jobCompany.setText(job.getCompany().getName());
+        jobCompany.setText(job.getCompanyName());
         jobSalary.setText(String.valueOf(job.getSalary()));
         jobLocation.setText(job.getJobLocation());
     }

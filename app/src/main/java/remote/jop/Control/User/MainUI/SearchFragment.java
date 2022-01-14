@@ -1,9 +1,11 @@
 package remote.jop.Control.User.MainUI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,9 +28,10 @@ import Model.Company;
 import Model.Job;
 import remote.jop.Control.ConnectionManager;
 import remote.jop.Control.JobAdapter;
+import remote.jop.JobActivity;
 import remote.jop.R;
 
-public class SearchFragment extends Fragment {
+public class SearchFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private ConnectionManager manager = ConnectionManager.shared();
     private DatabaseReference databaseReference;
@@ -68,6 +71,7 @@ public class SearchFragment extends Fragment {
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                jobs.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     job = new Job();
                     job.setCompanyName((String) dataSnapshot.child("company").child("name").getValue());
@@ -87,5 +91,13 @@ public class SearchFragment extends Fragment {
 
             }
         });
+
+        listView.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        startActivity(new Intent(getActivity().getApplicationContext(), JobActivity.class).putExtra("job",
+                jobs.get(i)));
     }
 }
