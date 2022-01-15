@@ -21,7 +21,7 @@ import remote.jop.R;
 
 public class AccountFragment extends Fragment implements View.OnClickListener {
 
-    private User user;
+    private User user = UserLogin.appUser;
     private ImageView logoutBtn;
     private ImageView settingBtn;
     private TextView userName;
@@ -29,7 +29,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
     private ConnectionManager manager = ConnectionManager.shared();
 
     public AccountFragment(User user) {
-        this.user = user;
+        
     }
 
     @Nullable
