@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = mainFragment;
                 break;
             case R.id.fav_navigation_item:
-                selectedFragment = new FavouriteFragment(user);
+                selectedFragment = new FavouriteFragment();
                 break;
             case R.id.account_navigation_item:
                 selectedFragment = new AccountFragment(user);
