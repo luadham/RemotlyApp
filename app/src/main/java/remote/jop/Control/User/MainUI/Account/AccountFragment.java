@@ -29,7 +29,7 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
     private ConnectionManager manager = ConnectionManager.shared();
 
     public AccountFragment(User user) {
-        
+
     }
 
     @Nullable
@@ -65,7 +65,6 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
 
 
     private void goToSettingFragment() {
-
         getActivity()
                 .getSupportFragmentManager()
                 .beginTransaction()

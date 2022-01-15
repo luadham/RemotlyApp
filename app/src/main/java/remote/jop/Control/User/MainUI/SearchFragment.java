@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ import Model.User;
 import remote.jop.Control.ConnectionManager;
 import remote.jop.Control.JobAdapter;
 import remote.jop.JobActivity;
+import remote.jop.JobDescriptionFragment;
 import remote.jop.R;
 
 public class SearchFragment extends Fragment implements AdapterView.OnItemClickListener {
@@ -43,6 +45,8 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
     private ArrayList<Job> jobs;
     private Job job;
     private User user;
+    private Fragment descriptionFragment;
+    private TextView jobDesc;
 
     public SearchFragment() {
 
@@ -55,6 +59,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         return inflater.inflate(R.layout.fragment_search, container, false);
     }
 
@@ -106,7 +111,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
         startActivity(new Intent(getActivity().getApplicationContext(), JobActivity.class).putExtra("job",
                 jobs.get(i)));
     }
-
 
 
 }

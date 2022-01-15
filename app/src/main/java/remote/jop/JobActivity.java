@@ -3,7 +3,9 @@ package remote.jop;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,8 +42,9 @@ public class JobActivity extends AppCompatActivity implements View.OnClickListen
     private ConnectionManager manager = ConnectionManager.shared();
     private FirebaseDatabase databaseReference;
     private DataSnapshot userSnapShot;
-    ArrayList<Job> jobs;
-
+    private ArrayList<Job> jobs;
+    private TextView jobDesc;
+    private TextView jobReq;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +55,17 @@ public class JobActivity extends AppCompatActivity implements View.OnClickListen
         jobSalary = findViewById(R.id.job_salary);
         jobLocation = findViewById(R.id.job_location);
         favButton = findViewById(R.id.fav_button_job_activity);
+        jobDesc = findViewById(R.id.job_desc_button);
+        jobReq = findViewById(R.id.job_req_button);
+
+        jobReq.setOnClickListener(this);
+        jobDesc.setOnClickListener(this);
+
         databaseReference = manager.getDatabaseReference();
         favButton.setOnClickListener(this);
         job = (Job) getIntent().getSerializableExtra("job");
+
+        showJobDesc();
         setData();
     }
 
@@ -71,7 +82,31 @@ public class JobActivity extends AppCompatActivity implements View.OnClickListen
             case R.id.fav_button_job_activity:
                 addJobToFav();
                 break;
+            case R.id.job_desc_button:
+                showJobDesc();
+                break;
+            case R.id.job_req_button:
+                showJobReq();
+                break;
         }
+    }
+
+    private void showJobDesc() {
+        jobReq.setTextColor(Color.GRAY);
+        jobDesc.setTextColor(Color.BLACK);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.job_activity_frame, new JobDescriptionFragment(job.getJobDesc()))
+                .commit();
+    }
+
+    private void showJobReq() {
+        jobReq.setTextColor(Color.BLACK);
+        jobDesc.setTextColor(Color.GRAY);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.job_activity_frame, new JobRequirmentFragment(job.getJobRequirements()))
+                .commit();
     }
 
     private void addJobToFav() {

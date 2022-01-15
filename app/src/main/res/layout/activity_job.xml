@@ -68,6 +68,7 @@
         android:gravity="center_horizontal"
         android:weightSum="2">
         <TextView
+            android:id="@+id/job_desc_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Job Description"
@@ -77,6 +78,7 @@
             android:textSize="18sp"
             android:layout_marginEnd="16dp"/>
         <TextView
+            android:id="@+id/job_req_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Job Requirement"
@@ -85,8 +87,10 @@
     </LinearLayout>
 
     <FrameLayout
+        android:id="@+id/job_activity_frame"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
     <LinearLayout
         android:layout_width="match_parent"
