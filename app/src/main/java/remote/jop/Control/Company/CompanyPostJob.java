@@ -64,6 +64,12 @@ public class CompanyPostJob extends AppCompatActivity implements View.OnClickLis
         job = getJob();
         firebaseDatabase = manager.getDatabaseReference().getReference(jops);
         firebaseDatabase.push().setValue(job);
+        jopTitle.setText("");
+        jopReq.setText("");
+        jopLocation.setText("");
+        jopDesc.setText("");
+        jopSalary.setText("0");
+        Toast.makeText(this, "Job Posted", Toast.LENGTH_SHORT).show();
     }
     @Override
     public void onClick(View view) {
