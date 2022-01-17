@@ -14,7 +14,7 @@ import remote.jop.SwitchActivity;
 @SuppressLint("CustomSplashScreen")
 public class SplashScreen extends AppCompatActivity {
 
-    private final int DELAY = 1000;
+    private final int DELAY = 3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

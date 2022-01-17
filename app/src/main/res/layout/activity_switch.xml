@@ -4,57 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SwitchActivity"
-    android:orientation="horizontal"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".SwitchActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginEnd="16dp">
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/user_login_switch_activity"
-            android:src="@drawable/ic_creativity_amico"
-            android:background="@drawable/round_button"
-            android:backgroundTint="#2E791AE5"
-            android:elevation="10dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Seeker"
-            android:fontFamily="@font/main_font"
-            android:textSize="22sp"
-            android:elevation="10dp"/>
-
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_rawRes="@raw/prog"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-        <ImageButton
+        android:layout_height="wrap_content">
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/company_login_switch_activity"
-            android:src="@drawable/ic_company_amico"
-            android:background="@drawable/round_button"
-            android:backgroundTint="#2E791AE5"
-            android:elevation="10dp"/>
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <TextView
+            <ImageButton
+                android:id="@+id/user_login_switch_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:backgroundTint="#2E791AE5"
+                android:elevation="10dp"
+                android:src="@drawable/ic_creativity_amico" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:fontFamily="@font/main_font"
+                android:text="Seeker"
+                android:textSize="22sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Company"
-            android:fontFamily="@font/main_font"
-            android:textSize="22sp"
-            android:elevation="10dp"/>
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <ImageButton
+                android:id="@+id/company_login_switch_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_button"
+                android:backgroundTint="#2E791AE5"
+                android:elevation="10dp"
+                android:src="@drawable/ic_company_amico" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="10dp"
+                android:fontFamily="@font/main_font"
+                android:text="Company"
+                android:textSize="22sp" />
+
+        </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
